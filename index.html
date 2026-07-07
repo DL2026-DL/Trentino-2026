@@ -40,6 +40,11 @@ h1,h2,h3{font-family:Georgia, 'Times New Roman', serif;margin:0;color:var(--gree
   margin-top:8px;
   font-weight:800;
 }
+
+.status-on{
+  background:#dff5df;
+  color:#0b4b2b;
+}
 .flight-meta{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -183,11 +188,16 @@ function flightCountdown(date, time){
   const target = new Date(`${date}T${time}:00`);
   const now = new Date();
   const diff = target - now;
+
   if(diff <= 0) return 'Controlla stato volo';
+
   const days = Math.floor(diff / 86400000);
   const hours = Math.floor((diff % 86400000) / 3600000);
-  if(days > 0) return `Mancano ${days} giorni`;
-  return `Mancano ${hours} ore`;
+  const minutes = Math.floor((diff % 3600000) / 60000);
+
+  if(days > 0) return `${days} giorni · ${hours} ore`;
+  if(hours > 0) return `${hours} ore · ${minutes} min`;
+  return `${minutes} minuti`;
 }
 
 function renderFlights(){
@@ -196,7 +206,7 @@ function renderFlights(){
 
   board.innerHTML = flights.map(f => `
     <div class="flight-card">
-      <span class="flight-status">✈️ ${f.label} · ${flightCountdown(f.date, f.depart)}</span>
+      <span class="flight-status">✈️ ${f.label} · partenza tra ${flightCountdown(f.date, f.depart)}</span>
       <h3>${f.code}</h3>
       <p class="mini" style="color:rgba(255,255,255,.72)">${new Date(f.date).toLocaleDateString('it-IT',{weekday:'long',day:'2-digit',month:'long',year:'numeric'})}</p>
 
@@ -213,7 +223,7 @@ function renderFlights(){
       </div>
 
       <div class="flight-meta">
-        <div><b>Stato</b><br><span class="mini" style="color:white">Programmato</span></div>
+        <div><b>Stato</b><br><span class="mini status-on">ON TIME</span></div>
         <div><b>Gate</b><br><span class="mini" style="color:white">Da verificare</span></div>
         <div><b>Bagagli</b><br><span class="mini" style="color:white">Ryanair</span></div>
       </div>
@@ -221,9 +231,9 @@ function renderFlights(){
       <p style="color:rgba(255,255,255,.84)">${f.note}</p>
 
       <div class="flight-links">
-        <a target="_blank" href="${f.google}">Google Flight Status</a>
-        <a target="_blank" href="${f.radar}">FlightRadar24</a>
-        <a target="_blank" href="${f.airport}">Aeroporto</a>
+        <a target="_blank" href="${f.google}">🔎 Stato volo</a>
+        <a target="_blank" href="${f.radar}">📡 Tracking</a>
+        <a target="_blank" href="${f.airport}">🛫 Aeroporto</a>
       </div>
     </div>
   `).join('');
