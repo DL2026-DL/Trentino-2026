@@ -144,6 +144,86 @@ h1,h2,h3{font-family:Georgia, 'Times New Roman', serif;margin:0;color:var(--gree
 .flight-card.today{
   background:linear-gradient(145deg,#102a66,#174ea6);
 } 
+.hotel-premium{
+  display:grid;
+  gap:18px;
+}
+
+.hotel-premium-hero{
+  min-height:430px;
+  border-radius:36px;
+  overflow:hidden;
+  position:relative;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.72)),
+    url('assets/hotel_erica_reale.png') center/cover;
+  display:flex;
+  align-items:flex-end;
+  box-shadow:var(--shadow);
+}
+
+.hotel-premium-hero-content{
+  padding:34px;
+  color:white;
+}
+
+.hotel-premium-hero-content h2{
+  color:white;
+  font-size:48px;
+}
+
+.hotel-stars{
+  display:inline-flex;
+  margin-top:10px;
+  padding:9px 13px;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  backdrop-filter:blur(10px);
+  font-weight:900;
+}
+
+.hotel-info-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:18px;
+}
+
+.hotel-service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.hotel-service{
+  background:white;
+  border:1px solid #eadfce;
+  border-radius:22px;
+  padding:18px;
+  font-weight:800;
+}
+
+.hotel-service span{
+  display:block;
+  font-size:28px;
+  margin-bottom:6px;
+}
+
+.hotel-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:16px;
+}
+
+@media(max-width:900px){
+  .hotel-info-grid{
+    grid-template-columns:1fr;
+  }
+  .hotel-service-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+ 
 </style>
 </head>
 <body>
@@ -159,7 +239,59 @@ h1,h2,h3{font-family:Georgia, 'Times New Roman', serif;margin:0;color:var(--gree
 <section id="itinerario" class="section"><div class="section-title"><h2>Itinerario completo</h2><span class="tag">23–29 Agosto 2026</span></div><div class="days" id="daytabs"></div><div class="grid two"><div class="card"><div id="dayContent"></div></div><div class="grid"><div class="photo-card" id="dayPhoto"><span></span></div><div class="card"><h3>👶 Family Tips</h3><p id="familyTip"></p></div><div class="card"><h3>🍝 Pranzo consigliato</h3><p id="lunchTip"></p><button class="btn secondary" onclick="show('mangiare')">Vedi alternative</button></div></div></div></section>
 <section id="escursioni" class="section"><div class="section-title"><h2>Schede escursioni</h2></div><div class="grid three" id="excursions"></div></section>
 <section id="mangiare" class="section"><div class="section-title"><h2>Dove pranzare</h2><span class="tag">Cena e colazione in hotel</span></div><div class="grid three" id="restaurants"></div><div class="section-title"><h2>Sapori della Val di Fiemme</h2></div><div class="grid three"><div class="card">🥟 <b>Canederli</b><p>Classico comfort food trentino, perfetto in malga.</p></div><div class="card">🧀 <b>Polenta e formaggi</b><p>Da provare in rifugio con vista.</p></div><div class="card">🍰 <b>Strudel</b><p>Pausa dolce dopo passeggiata o cabinovia.</p></div></div></section>
-<section id="hotel" class="section"><div class="hotel-hero"><div><h2>Hotel Erica ★★★★S</h2><p>Tesero · Val di Fiemme · colazione e cena incluse</p></div></div><div class="section-title"><h2>Il vostro rifugio</h2></div><div class="grid two"><div class="card"><h3>Info soggiorno</h3><p>Hotel family-friendly a Tesero, base comoda per Cavalese, Predazzo, Paneveggio, Passo Lavazè e Val di Sadole.</p><p><b>Incluso:</b> colazione e cena. I suggerimenti pranzo sono pensati per le escursioni.</p><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hotel+Erica+Tesero">Indicazioni stradali</a></div><div class="grid amenities"><div class="amenity">🍳<br>Colazione</div><div class="amenity">🍽<br>Cena</div><div class="amenity">🧖<br>SPA</div><div class="amenity">🏊<br>Piscina</div><div class="amenity">👨‍👩‍👦<br>Family</div><div class="amenity">🅿️<br>Parcheggio</div><div class="amenity">🌲<br>Natura</div><div class="amenity">📍<br>Tesero</div></div></div></section>
+<section id="hotel" class="section">
+  <div class="section-title">
+    <h2>Hotel Erica</h2>
+    <span class="tag">Base del viaggio · Tesero</span>
+  </div>
+
+  <div class="hotel-premium">
+    <div class="hotel-premium-hero">
+      <div class="hotel-premium-hero-content">
+        <h2>Hotel Erica</h2>
+        <p>Tesero · Val di Fiemme · 23 → 29 agosto 2026</p>
+        <span class="hotel-stars">★★★★S · Wellness Family Hotel</span>
+      </div>
+    </div>
+
+    <div class="hotel-info-grid">
+      <div class="card">
+        <h3>Il vostro rifugio in Val di Fiemme</h3>
+        <p>
+          Hotel Erica è la vostra base per tutta la settimana: comodo per Tesero,
+          Cavalese, Predazzo, Alpe Cermis, Paneveggio e Passo Lavazè.
+        </p>
+        <p>
+          <b>Trattamento:</b> colazione e cena comprese in hotel.
+          I pranzi restano liberi e sono organizzati giorno per giorno nelle tappe.
+        </p>
+
+        <div class="hotel-actions">
+          <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hotel+Erica+Tesero">🧭 Naviga</a>
+          <a class="btn secondary" target="_blank" href="https://www.hotel-erica.com/">🌐 Sito ufficiale</a>
+          <a class="btn secondary" href="tel:+390462813155">📞 Chiama</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Info soggiorno</h3>
+        <p><b>Check-in:</b> da verificare con la struttura</p>
+        <p><b>Check-out:</b> da verificare con la struttura</p>
+        <p><b>Notti:</b> 6</p>
+        <p><b>Note:</b> hotel scelto come base per tutte le escursioni.</p>
+      </div>
+    </div>
+
+    <div class="hotel-service-grid">
+      <div class="hotel-service"><span>🍳</span>Colazione inclusa</div>
+      <div class="hotel-service"><span>🍽</span>Cena inclusa</div>
+      <div class="hotel-service"><span>🏊</span>Piscina</div>
+      <div class="hotel-service"><span>🧖</span>Wellness & Spa</div>
+      <div class="hotel-service"><span>👨‍👩‍👧</span>Family hotel</div>
+      <div class="hotel-service"><span>🅿️</span>Parcheggio</div>
+    </div>
+  </div>
+</section>
 <section id="mappa" class="section"><div class="section-title"><h2>Mappa</h2></div><iframe class="mapframe" loading="lazy" src="https://www.google.com/maps?q=Tesero%20Val%20di%20Fiemme&output=embed"></iframe></section>
 <section id="meteo" class="section"><div class="section-title"><h2>Meteo live</h2><span class="tag">Open-Meteo · Tesero</span></div><div class="grid two"><div class="card" id="weatherNow"><h3>🌤 Meteo Tesero</h3><p class="muted">Caricamento dati live...</p></div><div class="card"><h3>🔄 Aggiornamento</h3><p class="muted">Il meteo si aggiorna quando apri TravelBook. Puoi anche forzare un nuovo aggiornamento.</p><button class="btn" onclick="weather(true)">Aggiorna meteo</button><p class="mini" id="weatherUpdated" style="margin-top:12px">Ultimo aggiornamento: --</p></div></div><div class="weatherbox" id="weatherGrid" style="margin-top:18px"></div><div class="card" style="margin-top:18px"><p class="muted">Previsioni live da Open-Meteo per Tesero. Le date del viaggio 2026 compariranno solo quando rientreranno nella finestra previsionale disponibile.</p></div></section>
 <section id="voli" class="section">
