@@ -17,6 +17,51 @@ h1,h2,h3{font-family:Georgia, 'Times New Roman', serif;margin:0;color:var(--gree
 .modal{position:fixed;inset:0;background:rgba(4,22,16,.68);display:none;align-items:center;justify-content:center;padding:22px;z-index:99}.modal.open{display:flex}.sheet{background:var(--white);width:min(1060px,96vw);max-height:92vh;overflow:auto;border-radius:32px;box-shadow:var(--shadow);border:1px solid rgba(18,63,47,.12)}.sheetHero{height:330px;position:relative;background-size:cover;background-position:center}.sheetHero:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.55))}.close{position:absolute;right:18px;top:18px;border:0;background:rgba(255,255,255,.92);border-radius:999px;padding:12px 15px;cursor:pointer;z-index:2;font-weight:900}.sheetBody{padding:28px}.detailGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}.infoCard{background:white;border:1px solid #eadfce;border-radius:22px;padding:18px;margin-bottom:14px}.quickFacts{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.photoStrip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.photoStrip img{height:130px;object-fit:cover;width:100%;border-radius:18px}.credit{font-size:11px;color:#7a7469;margin-top:8px}.place-note{background:#fff7e7;border-left:4px solid var(--gold);padding:12px 14px;border-radius:16px;margin:12px 0}.galleryLabel{position:absolute;left:20px;bottom:18px;color:white;z-index:3;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.45)}.linklike{border:0;background:transparent;color:var(--green2);font-weight:800;cursor:pointer;padding:0;font-size:inherit}.step.clickable{cursor:pointer}.step.clickable:hover{border-color:var(--gold);box-shadow:0 10px 28px rgba(18,63,47,.10)}
 
 @media(max-width:980px){.app{grid-template-columns:1fr}.side{display:none}.main{padding:14px 14px 96px}.hero{min-height:620px;border-radius:26px}.hero-inner{padding:30px}.hero h2{font-size:42px}.stats,.three,.two,.amenities,.weatherbox{grid-template-columns:1fr}.stats{margin-top:-120px;padding:0 18px}.bottom{position:fixed;left:12px;right:12px;bottom:12px;background:rgba(18,63,47,.92);backdrop-filter:blur(16px);display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:8px;border-radius:24px;z-index:8}.bottom button{border:0;background:transparent;color:white;font-size:11px;padding:8px;border-radius:16px}.bottom button.active{background:rgba(255,255,255,.18)}.step{grid-template-columns:52px 1fr}.step .btn{grid-column:2}.checks{columns:1}.section-title h2{font-size:32px}.detailGrid,.photoStrip{grid-template-columns:1fr}.sheetHero{height:230px}.sheetBody{padding:20px}}
+
+.flight-card{
+  background:#101f18;
+  color:white;
+  border-radius:30px;
+  padding:26px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.flight-card h3{color:white;font-size:28px;margin-bottom:6px}
+.flight-route{display:flex;justify-content:space-between;gap:18px;margin:22px 0}
+.airport strong{display:block;font-size:26px;color:white}
+.airport span{font-size:13px;opacity:.75}
+.flight-arrow{font-size:32px;opacity:.7;align-self:center}
+.flight-status{
+  display:inline-flex;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.14);
+  margin-top:8px;
+  font-weight:800;
+}
+.flight-meta{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin:18px 0;
+}
+.flight-meta div{
+  background:rgba(255,255,255,.10);
+  border-radius:18px;
+  padding:12px;
+}
+.flight-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.flight-links a{
+  text-decoration:none;
+  background:#eee4d2;
+  color:var(--green);
+  padding:10px 12px;
+  border-radius:14px;
+  font-weight:800;
+  font-size:13px;
+}
+
 </style>
 </head>
 <body>
@@ -35,7 +80,21 @@ h1,h2,h3{font-family:Georgia, 'Times New Roman', serif;margin:0;color:var(--gree
 <section id="hotel" class="section"><div class="hotel-hero"><div><h2>Hotel Erica ★★★★S</h2><p>Tesero · Val di Fiemme · colazione e cena incluse</p></div></div><div class="section-title"><h2>Il vostro rifugio</h2></div><div class="grid two"><div class="card"><h3>Info soggiorno</h3><p>Hotel family-friendly a Tesero, base comoda per Cavalese, Predazzo, Paneveggio, Passo Lavazè e Val di Sadole.</p><p><b>Incluso:</b> colazione e cena. I suggerimenti pranzo sono pensati per le escursioni.</p><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hotel+Erica+Tesero">Indicazioni stradali</a></div><div class="grid amenities"><div class="amenity">🍳<br>Colazione</div><div class="amenity">🍽<br>Cena</div><div class="amenity">🧖<br>SPA</div><div class="amenity">🏊<br>Piscina</div><div class="amenity">👨‍👩‍👦<br>Family</div><div class="amenity">🅿️<br>Parcheggio</div><div class="amenity">🌲<br>Natura</div><div class="amenity">📍<br>Tesero</div></div></div></section>
 <section id="mappa" class="section"><div class="section-title"><h2>Mappa</h2></div><iframe class="mapframe" loading="lazy" src="https://www.google.com/maps?q=Tesero%20Val%20di%20Fiemme&output=embed"></iframe></section>
 <section id="meteo" class="section"><div class="section-title"><h2>Meteo live</h2><span class="tag">Open-Meteo · Tesero</span></div><div class="grid two"><div class="card" id="weatherNow"><h3>🌤 Meteo Tesero</h3><p class="muted">Caricamento dati live...</p></div><div class="card"><h3>🔄 Aggiornamento</h3><p class="muted">Il meteo si aggiorna quando apri TravelBook. Puoi anche forzare un nuovo aggiornamento.</p><button class="btn" onclick="weather(true)">Aggiorna meteo</button><p class="mini" id="weatherUpdated" style="margin-top:12px">Ultimo aggiornamento: --</p></div></div><div class="weatherbox" id="weatherGrid" style="margin-top:18px"></div><div class="card" style="margin-top:18px"><p class="muted">Previsioni live da Open-Meteo per Tesero. Le date del viaggio 2026 compariranno solo quando rientreranno nella finestra previsionale disponibile.</p></div></section>
-<section id="voli" class="section"><div class="section-title"><h2>Voli</h2></div><div class="grid two"><div class="flight"><h3>Andata · FR548</h3><p><b>Bari BRI</b> 12:05 → <b>Bologna BLQ</b> 13:25<br>23 Agosto 2026</p><a class="btn" target="_blank" href="https://www.google.com/search?q=FR548+flight+status+23+August+2026">Google Flight Status</a> <a class="btn secondary" target="_blank" href="https://www.flightradar24.com/data/flights/fr548">FlightRadar24</a></div><div class="flight"><h3>Ritorno · FR4030</h3><p><b>Verona VRN</b> 13:30 → <b>Bari BRI</b> 14:50<br>29 Agosto 2026</p><a class="btn" target="_blank" href="https://www.google.com/search?q=FR4030+flight+status+29+August+2026">Google Flight Status</a> <a class="btn secondary" target="_blank" href="https://www.flightradar24.com/data/flights/fr4030">FlightRadar24</a></div></div></section>
+<section id="voli" class="section">
+  <div class="section-title">
+    <h2>Flight Center</h2>
+    <span class="tag">Ryanair · aggiornamento intelligente</span>
+  </div>
+
+  <div class="grid two" id="flightBoard"></div>
+
+  <div class="card" style="margin-top:18px">
+    <h3>ℹ️ Nota live</h3>
+    <p class="muted">
+      La dashboard aggiorna countdown, promemoria e link rapidi. Gate, terminal e ritardi reali saranno disponibili tramite tracking esterno o API voli dedicata.
+    </p>
+  </div>
+</section>
 <section id="checklist" class="section"><div class="section-title"><h2>Valigia compatta</h2><span class="tag">Salvataggio locale</span></div><div class="accordion acc" id="packing"></div></section>
 <section id="diario" class="section"><div class="section-title"><h2>Diario di viaggio</h2></div><div class="card"><p>Scrivi note, idee o ricordi. Rimangono salvati nel browser.</p><textarea id="journal" class="notearea" placeholder="Oggi abbiamo..."></textarea></div></section>
 <section id="utili" class="section"><div class="section-title"><h2>Informazioni utili</h2></div><div class="grid three"><div class="card"><h3>☔ Se piove</h3><p>Palazzo della Magnifica Comunità, piscina/spa hotel, centro di Cavalese, musei e aree gioco indoor.</p></div><div class="card"><h3>🆘 Emergenze</h3><p>Numero unico europeo: <b>112</b>.</p></div><div class="card"><h3>📍 Base</h3><p>Tesero è comoda per Cavalese, Predazzo, Pampeago, Paneveggio e Passo Lavazè.</p></div></div></section>
@@ -87,6 +146,88 @@ packing.innerHTML=Object.entries(pack).map(([k,v])=>`<details><summary>${k}</sum
 document.addEventListener('change',e=>{if(e.target.dataset.pack){localStorage.setItem('pack_'+e.target.dataset.pack,e.target.checked?'1':'0');toast()}});setTimeout(()=>document.querySelectorAll('[data-pack]').forEach(x=>x.checked=localStorage.getItem('pack_'+x.dataset.pack)==='1'),50);
 journal.value=localStorage.getItem('journal')||'';journal.addEventListener('input',()=>{localStorage.setItem('journal',journal.value);});function toast(){const t=document.getElementById('toast');t.style.display='block';setTimeout(()=>t.style.display='none',900)}
 function countdown(){const start=new Date('2026-08-23T00:00:00');const now=new Date();const diff=Math.ceil((start-now)/(1000*60*60*24));document.getElementById('countdown').textContent=diff>0?diff:'In viaggio'}countdown();
+const flights = [
+  {
+    code: 'FR548',
+    label: 'Andata',
+    from: 'BRI',
+    fromName: 'Bari',
+    to: 'BLQ',
+    toName: 'Bologna',
+    date: '2026-08-23',
+    depart: '12:05',
+    arrive: '13:25',
+    note: 'Familiari vi vengono a prendere a Bologna.',
+    google: 'https://www.google.com/search?q=FR548+flight+status+23+August+2026',
+    radar: 'https://www.flightradar24.com/data/flights/fr548',
+    airport: 'https://www.bologna-airport.it/'
+  },
+  {
+    code: 'FR4030',
+    label: 'Ritorno',
+    from: 'VRN',
+    fromName: 'Verona',
+    to: 'BRI',
+    toName: 'Bari',
+    date: '2026-08-29',
+    depart: '13:30',
+    arrive: '14:50',
+    note: 'Trasferimento con familiari verso aeroporto di Verona.',
+    google: 'https://www.google.com/search?q=FR4030+flight+status+29+August+2026',
+    radar: 'https://www.flightradar24.com/data/flights/fr4030',
+    airport: 'https://www.aeroportoverona.it/'
+  }
+];
+
+function flightCountdown(date, time){
+  const target = new Date(`${date}T${time}:00`);
+  const now = new Date();
+  const diff = target - now;
+  if(diff <= 0) return 'Controlla stato volo';
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  if(days > 0) return `Mancano ${days} giorni`;
+  return `Mancano ${hours} ore`;
+}
+
+function renderFlights(){
+  const board = document.getElementById('flightBoard');
+  if(!board) return;
+
+  board.innerHTML = flights.map(f => `
+    <div class="flight-card">
+      <span class="flight-status">✈️ ${f.label} · ${flightCountdown(f.date, f.depart)}</span>
+      <h3>${f.code}</h3>
+      <p class="mini" style="color:rgba(255,255,255,.72)">${new Date(f.date).toLocaleDateString('it-IT',{weekday:'long',day:'2-digit',month:'long',year:'numeric'})}</p>
+
+      <div class="flight-route">
+        <div class="airport">
+          <strong>${f.from}</strong>
+          <span>${f.fromName}<br>${f.depart}</span>
+        </div>
+        <div class="flight-arrow">→</div>
+        <div class="airport" style="text-align:right">
+          <strong>${f.to}</strong>
+          <span>${f.toName}<br>${f.arrive}</span>
+        </div>
+      </div>
+
+      <div class="flight-meta">
+        <div><b>Stato</b><br><span class="mini" style="color:white">Programmato</span></div>
+        <div><b>Gate</b><br><span class="mini" style="color:white">Da verificare</span></div>
+        <div><b>Bagagli</b><br><span class="mini" style="color:white">Ryanair</span></div>
+      </div>
+
+      <p style="color:rgba(255,255,255,.84)">${f.note}</p>
+
+      <div class="flight-links">
+        <a target="_blank" href="${f.google}">Google Flight Status</a>
+        <a target="_blank" href="${f.radar}">FlightRadar24</a>
+        <a target="_blank" href="${f.airport}">Aeroporto</a>
+      </div>
+    </div>
+  `).join('');
+}
 const weatherDescriptions={0:['☀️','Sereno'],1:['🌤️','Prevalentemente sereno'],2:['⛅','Parzialmente nuvoloso'],3:['☁️','Coperto'],45:['🌫️','Nebbia'],48:['🌫️','Nebbia con brina'],51:['🌦️','Pioviggine leggera'],53:['🌦️','Pioviggine'],55:['🌧️','Pioviggine intensa'],61:['🌧️','Pioggia debole'],63:['🌧️','Pioggia'],65:['🌧️','Pioggia forte'],71:['🌨️','Neve debole'],73:['🌨️','Neve'],75:['🌨️','Neve forte'],80:['🌦️','Rovesci deboli'],81:['🌧️','Rovesci'],82:['⛈️','Rovesci forti'],95:['⛈️','Temporale'],96:['⛈️','Temporale con grandine'],99:['⛈️','Temporale forte']};
 function weatherIcon(code){return (weatherDescriptions[code]||[code<3?'☀️':code<60?'☁️':code<80?'🌧️':'⛈️','Meteo variabile']);}
 async function weather(force=false){
@@ -121,6 +262,8 @@ async function weather(force=false){
   }
 }
 if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js?v=2.0').catch(()=>{}));}
-weather();renderDays();
+weather();
+renderDays();
+renderFlights();
 </script>
 </body></html>
