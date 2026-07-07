@@ -91,7 +91,59 @@ h1,h2,h3{font-family:Georgia, 'Times New Roman', serif;margin:0;color:var(--gree
   font-size:24px;
   font-weight:900;
 }
- 
+.flight-card{
+  background:linear-gradient(145deg,#081f17,#0f2b20);
+}
+.flight-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:18px;
+}
+.flight-title{
+  font-size:30px;
+  font-weight:900;
+  color:white;
+}
+.flight-status-big{
+  background:#dff5df;
+  color:#0b4b2b;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:900;
+}
+.flight-main-route{
+  font-size:22px;
+  font-weight:800;
+  margin:10px 0 22px;
+  color:white;
+}
+.flight-dashboard{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin:20px 0;
+}
+.flight-dashboard .dash-item{
+  background:rgba(255,255,255,.10);
+  border-radius:18px;
+  padding:14px;
+}
+.flight-dashboard b{
+  display:block;
+  color:white;
+  margin-bottom:4px;
+}
+.flight-dashboard span{
+  color:rgba(255,255,255,.82);
+}
+.flight-card.soon{
+  background:linear-gradient(145deg,#5b3b0b,#9a681b);
+}
+.flight-card.today{
+  background:linear-gradient(145deg,#102a66,#174ea6);
+} 
 </style>
 </head>
 <body>
@@ -225,43 +277,59 @@ function flightCountdown(date, time){
   return `${minutes} minuti`;
 }
 
+function flightPhaseClass(date, time){
+  const target = new Date(`${date}T${time}:00`);
+  const now = new Date();
+  const diff = target - now;
+  const hours = diff / 3600000;
+
+  if(hours <= 24 && hours > 0) return 'today';
+  if(hours <= 72 && hours > 24) return 'soon';
+  return '';
+}
+
 function renderFlights(){
   const board = document.getElementById('flightBoard');
   if(!board) return;
 
   board.innerHTML = flights.map(f => `
-    <div class="flight-card">
-      <div class="flight-hero-status">
-  <span>${f.label}</span>
-  <strong>PARTENZA TRA</strong>
-  <em>${flightCountdown(f.date, f.depart)}</em>
-</div>
-      <h3>${f.code}</h3>
-      <p class="mini" style="color:rgba(255,255,255,.72)">${new Date(f.date).toLocaleDateString('it-IT',{weekday:'long',day:'2-digit',month:'long',year:'numeric'})}</p>
-
-      <div class="flight-route">
-        <div class="airport">
-          <strong>${f.from}</strong>
-          <span>${f.fromName}<br>${f.depart}</span>
+    <div class="flight-card ${flightPhaseClass(f.date, f.depart)}">
+      <div class="flight-top">
+        <div>
+          <div class="flight-title">✈️ ${f.code}</div>
+          <p class="mini" style="color:rgba(255,255,255,.75)">
+            ${new Date(f.date).toLocaleDateString('it-IT',{weekday:'long',day:'2-digit',month:'long',year:'numeric'})}
+          </p>
         </div>
-        <div class="flight-arrow">→</div>
-        <div class="airport" style="text-align:right">
-          <strong>${f.to}</strong>
-          <span>${f.toName}<br>${f.arrive}</span>
-        </div>
+        <div class="flight-status-big">🟢 ON TIME</div>
       </div>
 
-      <div class="flight-meta">
-        <div><b>Stato</b><br><span class="mini status-on">ON TIME</span></div>
-        <div><b>Gate</b><br><span class="mini" style="color:white">Da verificare</span></div>
-        <div><b>Bagagli</b><br><span class="mini" style="color:white">Ryanair</span></div>
+      <div class="flight-main-route">
+        ${f.fromName} → ${f.toName}
       </div>
 
-      <p style="color:rgba(255,255,255,.84)">${f.note}</p>
+      <div class="flight-dashboard">
+        <div class="dash-item">
+          <b>🕒 Partenza</b>
+          <span>${f.depart}</span>
+        </div>
+        <div class="dash-item">
+          <b>🛬 Arrivo</b>
+          <span>${f.arrive}</span>
+        </div>
+        <div class="dash-item">
+          <b>⏳ Countdown</b>
+          <span>${flightCountdown(f.date, f.depart)}</span>
+        </div>
+        <div class="dash-item">
+          <b>👨‍👩‍👧 Trasferimento</b>
+          <span>${f.note}</span>
+        </div>
+      </div>
 
       <div class="flight-links">
-        <a target="_blank" href="${f.google}">🔎 Stato volo</a>
         <a target="_blank" href="${f.radar}">📡 Tracking</a>
+        <a target="_blank" href="${f.google}">🔎 Stato volo</a>
         <a target="_blank" href="${f.airport}">🛫 Aeroporto</a>
       </div>
     </div>
