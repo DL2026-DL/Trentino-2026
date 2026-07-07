@@ -66,7 +66,32 @@ h1,h2,h3{font-family:Georgia, 'Times New Roman', serif;margin:0;color:var(--gree
   font-weight:800;
   font-size:13px;
 }
-
+.flight-hero-status{
+  display:inline-flex;
+  flex-direction:column;
+  gap:4px;
+  background:linear-gradient(135deg,#f2e7cf,#ffffff);
+  color:#083d2c;
+  padding:14px 18px;
+  border-radius:22px;
+  margin-bottom:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
+}
+.flight-hero-status span{
+  font-size:13px;
+  font-weight:800;
+  opacity:.8;
+}
+.flight-hero-status strong{
+  font-size:11px;
+  letter-spacing:.14em;
+}
+.flight-hero-status em{
+  font-style:normal;
+  font-size:24px;
+  font-weight:900;
+}
+ 
 </style>
 </head>
 <body>
@@ -206,7 +231,11 @@ function renderFlights(){
 
   board.innerHTML = flights.map(f => `
     <div class="flight-card">
-      <span class="flight-status">✈️ ${f.label} · partenza tra ${flightCountdown(f.date, f.depart)}</span>
+      <div class="flight-hero-status">
+  <span>${f.label}</span>
+  <strong>PARTENZA TRA</strong>
+  <em>${flightCountdown(f.date, f.depart)}</em>
+</div>
       <h3>${f.code}</h3>
       <p class="mini" style="color:rgba(255,255,255,.72)">${new Date(f.date).toLocaleDateString('it-IT',{weekday:'long',day:'2-digit',month:'long',year:'numeric'})}</p>
 
