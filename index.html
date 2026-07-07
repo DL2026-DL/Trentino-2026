@@ -3,16 +3,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<title>TravelBook – Val di Fiemme 2026</title>
+<title>TravelBook – Val di Fiemme 1.1 Visual Edition</title>
 <meta name="theme-color" content="#0f3d2e"/>
-<meta name="description" content="TravelBook – Val di Fiemme 2026: itinerario, meteo, voli, hotel, escursioni e checklist."/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-<meta name="apple-mobile-web-app-title" content="TravelBook"/>
-<link rel="manifest" href="manifest.json"/>
-<link rel="apple-touch-icon" href="assets/icon-180.png"/>
-<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png"/>
-<link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png"/>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TravelBook">
 <style>
 :root{--green:#123f2f;--green2:#1f5a41;--sage:#7b8d64;--cream:#fbf5e9;--paper:#f4ead8;--gold:#c99b37;--ink:#14251d;--muted:#6f756d;--white:#fffaf2;--shadow:0 18px 55px rgba(18,63,47,.18);--radius:28px}
 *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;background:linear-gradient(135deg,var(--cream),#fffaf3);color:var(--ink)}
@@ -20,18 +17,14 @@ h1,h2,h3{font-family:Georgia, 'Times New Roman', serif;margin:0;color:var(--gree
 .modal{position:fixed;inset:0;background:rgba(4,22,16,.68);display:none;align-items:center;justify-content:center;padding:22px;z-index:99}.modal.open{display:flex}.sheet{background:var(--white);width:min(1060px,96vw);max-height:92vh;overflow:auto;border-radius:32px;box-shadow:var(--shadow);border:1px solid rgba(18,63,47,.12)}.sheetHero{height:330px;position:relative;background-size:cover;background-position:center}.sheetHero:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.55))}.close{position:absolute;right:18px;top:18px;border:0;background:rgba(255,255,255,.92);border-radius:999px;padding:12px 15px;cursor:pointer;z-index:2;font-weight:900}.sheetBody{padding:28px}.detailGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}.infoCard{background:white;border:1px solid #eadfce;border-radius:22px;padding:18px;margin-bottom:14px}.quickFacts{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.photoStrip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.photoStrip img{height:130px;object-fit:cover;width:100%;border-radius:18px}.credit{font-size:11px;color:#7a7469;margin-top:8px}.place-note{background:#fff7e7;border-left:4px solid var(--gold);padding:12px 14px;border-radius:16px;margin:12px 0}.galleryLabel{position:absolute;left:20px;bottom:18px;color:white;z-index:3;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.45)}.linklike{border:0;background:transparent;color:var(--green2);font-weight:800;cursor:pointer;padding:0;font-size:inherit}.step.clickable{cursor:pointer}.step.clickable:hover{border-color:var(--gold);box-shadow:0 10px 28px rgba(18,63,47,.10)}
 
 @media(max-width:980px){.app{grid-template-columns:1fr}.side{display:none}.main{padding:14px 14px 96px}.hero{min-height:620px;border-radius:26px}.hero-inner{padding:30px}.hero h2{font-size:42px}.stats,.three,.two,.amenities,.weatherbox{grid-template-columns:1fr}.stats{margin-top:-120px;padding:0 18px}.bottom{position:fixed;left:12px;right:12px;bottom:12px;background:rgba(18,63,47,.92);backdrop-filter:blur(16px);display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:8px;border-radius:24px;z-index:8}.bottom button{border:0;background:transparent;color:white;font-size:11px;padding:8px;border-radius:16px}.bottom button.active{background:rgba(255,255,255,.18)}.step{grid-template-columns:52px 1fr}.step .btn{grid-column:2}.checks{columns:1}.section-title h2{font-size:32px}.detailGrid,.photoStrip{grid-template-columns:1fr}.sheetHero{height:230px}.sheetBody{padding:20px}}
-
-.installBanner{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:120;display:none;gap:10px;align-items:center;background:rgba(18,63,47,.96);color:white;border:1px solid rgba(255,255,255,.18);box-shadow:var(--shadow);padding:12px 14px;border-radius:18px;max-width:min(560px,92vw)}
-.installBanner.show{display:flex}.installBanner button{border:0;border-radius:12px;padding:10px 12px;font-weight:800;cursor:pointer}.installBanner .installNow{background:#fffaf2;color:var(--green)}.installBanner .dismissInstall{background:rgba(255,255,255,.16);color:white}@media(max-width:980px){.installBanner{bottom:92px;font-size:13px}}
-
 </style>
 </head>
 <body>
 <div class="app">
-<aside class="side"><div class="brand"><div class="logo">⛰️</div><h1>TRAVELBOOK</h1><small>Val di Fiemme</small></div><nav class="nav" id="nav"></nav><div class="side-foot">📱 PWA installabile • Offline base • 🌤 Meteo live • ✈️ Voli • 🧳 Checklist salvata</div></aside>
+<aside class="side"><div class="brand"><div class="logo">⛰️</div><h1>TRAVELBOOK</h1><small>Val di Fiemme</small></div><nav class="nav" id="nav"></nav><div class="side-foot">📱 PWA installabile • 🌤 Meteo live • ✈️ Voli • 🧳 Checklist salvata</div></aside>
 <main class="main">
 <section id="home" class="section active">
-  <div class="hero"><div class="hero-inner"><span class="pill">📖 TravelBook 1.0.2</span><h2>Val di Fiemme, la vostra settimana tra le Dolomiti</h2><p>23 → 29 Agosto 2026 · Hotel Erica ★★★★S · famiglia, natura, relax e sapori trentini.</p><button class="btn" onclick="show('itinerario')">Inizia il viaggio</button></div></div>
+  <div class="hero"><div class="hero-inner"><span class="pill">📖 TravelBook 2.0</span><h2>Val di Fiemme, la vostra settimana tra le Dolomiti</h2><p>23 → 29 Agosto 2026 · Hotel Erica ★★★★S · famiglia, natura, relax e sapori trentini.</p><button class="btn" onclick="show('itinerario')">Inizia il viaggio</button></div></div>
   <div class="grid stats"><div class="card stat"><strong id="countdown">--</strong><br><span>giorni alla partenza</span></div><div class="card stat"><strong>FR548</strong><br><span>Bari → Bologna</span></div><div class="card stat"><strong id="todayWeather">Live</strong><br><span>Meteo Tesero</span></div><div class="card stat"><strong>7</strong><br><span>giorni / 6 notti</span></div></div>
   <div class="section-title"><h2>Dashboard del viaggio</h2><span class="tag">Aggiornata automaticamente</span></div>
   <div class="grid three"><div class="card"><h3>✈️ Prossimo volo</h3><p><b>FR548</b><br>Bari 12:05 → Bologna 13:25</p><a class="btn secondary" target="_blank" href="https://www.google.com/search?q=FR548+flight+status+23+August+2026">Controlla stato</a></div><div class="card"><h3>🏨 Hotel</h3><p>Colazione e cena incluse presso Hotel Erica, Tesero.</p><button class="btn secondary" onclick="openPlace('hotel')">Apri scheda hotel</button></div><div class="card"><h3>🍝 Pranzo</h3><p>Suggerimenti giorno per giorno: malghe, rifugi e locali family-friendly.</p><button class="btn secondary" onclick="show('mangiare')">Dove mangiare</button></div></div>
@@ -41,14 +34,12 @@ h1,h2,h3{font-family:Georgia, 'Times New Roman', serif;margin:0;color:var(--gree
 <section id="mangiare" class="section"><div class="section-title"><h2>Dove pranzare</h2><span class="tag">Cena e colazione in hotel</span></div><div class="grid three" id="restaurants"></div><div class="section-title"><h2>Sapori della Val di Fiemme</h2></div><div class="grid three"><div class="card">🥟 <b>Canederli</b><p>Classico comfort food trentino, perfetto in malga.</p></div><div class="card">🧀 <b>Polenta e formaggi</b><p>Da provare in rifugio con vista.</p></div><div class="card">🍰 <b>Strudel</b><p>Pausa dolce dopo passeggiata o cabinovia.</p></div></div></section>
 <section id="hotel" class="section"><div class="hotel-hero"><div><h2>Hotel Erica ★★★★S</h2><p>Tesero · Val di Fiemme · colazione e cena incluse</p></div></div><div class="section-title"><h2>Il vostro rifugio</h2></div><div class="grid two"><div class="card"><h3>Info soggiorno</h3><p>Hotel family-friendly a Tesero, base comoda per Cavalese, Predazzo, Paneveggio, Passo Lavazè e Val di Sadole.</p><p><b>Incluso:</b> colazione e cena. I suggerimenti pranzo sono pensati per le escursioni.</p><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hotel+Erica+Tesero">Indicazioni stradali</a></div><div class="grid amenities"><div class="amenity">🍳<br>Colazione</div><div class="amenity">🍽<br>Cena</div><div class="amenity">🧖<br>SPA</div><div class="amenity">🏊<br>Piscina</div><div class="amenity">👨‍👩‍👦<br>Family</div><div class="amenity">🅿️<br>Parcheggio</div><div class="amenity">🌲<br>Natura</div><div class="amenity">📍<br>Tesero</div></div></div></section>
 <section id="mappa" class="section"><div class="section-title"><h2>Mappa</h2></div><iframe class="mapframe" loading="lazy" src="https://www.google.com/maps?q=Tesero%20Val%20di%20Fiemme&output=embed"></iframe></section>
-<section id="meteo" class="section"><div class="section-title"><h2>Meteo live</h2><span class="tag">Open-Meteo · Tesero</span></div><div class="weatherbox" id="weatherGrid"></div><div class="card" style="margin-top:18px"><p class="muted">Le previsioni vengono caricate quando apri la pagina. Per i giorni del viaggio verranno visualizzati dati previsionali quando saranno disponibili a ridosso della partenza.</p></div></section>
+<section id="meteo" class="section"><div class="section-title"><h2>Meteo live</h2><span class="tag">Open-Meteo · Tesero</span></div><div class="grid two"><div class="card" id="weatherNow"><h3>🌤 Meteo Tesero</h3><p class="muted">Caricamento dati live...</p></div><div class="card"><h3>🔄 Aggiornamento</h3><p class="muted">Il meteo si aggiorna quando apri TravelBook. Puoi anche forzare un nuovo aggiornamento.</p><button class="btn" onclick="weather(true)">Aggiorna meteo</button><p class="mini" id="weatherUpdated" style="margin-top:12px">Ultimo aggiornamento: --</p></div></div><div class="weatherbox" id="weatherGrid" style="margin-top:18px"></div><div class="card" style="margin-top:18px"><p class="muted">Previsioni live da Open-Meteo per Tesero. Le date del viaggio 2026 compariranno solo quando rientreranno nella finestra previsionale disponibile.</p></div></section>
 <section id="voli" class="section"><div class="section-title"><h2>Voli</h2></div><div class="grid two"><div class="flight"><h3>Andata · FR548</h3><p><b>Bari BRI</b> 12:05 → <b>Bologna BLQ</b> 13:25<br>23 Agosto 2026</p><a class="btn" target="_blank" href="https://www.google.com/search?q=FR548+flight+status+23+August+2026">Google Flight Status</a> <a class="btn secondary" target="_blank" href="https://www.flightradar24.com/data/flights/fr548">FlightRadar24</a></div><div class="flight"><h3>Ritorno · FR4030</h3><p><b>Verona VRN</b> 13:30 → <b>Bari BRI</b> 14:50<br>29 Agosto 2026</p><a class="btn" target="_blank" href="https://www.google.com/search?q=FR4030+flight+status+29+August+2026">Google Flight Status</a> <a class="btn secondary" target="_blank" href="https://www.flightradar24.com/data/flights/fr4030">FlightRadar24</a></div></div></section>
 <section id="checklist" class="section"><div class="section-title"><h2>Valigia compatta</h2><span class="tag">Salvataggio locale</span></div><div class="accordion acc" id="packing"></div></section>
 <section id="diario" class="section"><div class="section-title"><h2>Diario di viaggio</h2></div><div class="card"><p>Scrivi note, idee o ricordi. Rimangono salvati nel browser.</p><textarea id="journal" class="notearea" placeholder="Oggi abbiamo..."></textarea></div></section>
 <section id="utili" class="section"><div class="section-title"><h2>Informazioni utili</h2></div><div class="grid three"><div class="card"><h3>☔ Se piove</h3><p>Palazzo della Magnifica Comunità, piscina/spa hotel, centro di Cavalese, musei e aree gioco indoor.</p></div><div class="card"><h3>🆘 Emergenze</h3><p>Numero unico europeo: <b>112</b>.</p></div><div class="card"><h3>📍 Base</h3><p>Tesero è comoda per Cavalese, Predazzo, Pampeago, Paneveggio e Passo Lavazè.</p></div></div></section>
-</main></div><nav class="bottom" id="bottom"></nav>
-<div id="installBanner" class="installBanner" role="status" aria-live="polite"><span>📱 Installa TravelBook sul telefono</span><button id="installNow" class="installNow">Installa</button><button id="dismissInstall" class="dismissInstall">Più tardi</button></div>
-<div class="toast" id="toast">Salvato</div>
+</main></div><nav class="bottom" id="bottom"></nav><div class="toast" id="toast">Salvato</div>
 <div class="modal" id="modal" aria-hidden="true">
   <div class="sheet" role="dialog" aria-modal="true">
     <div class="sheetHero" id="modalHero">
@@ -96,40 +87,40 @@ packing.innerHTML=Object.entries(pack).map(([k,v])=>`<details><summary>${k}</sum
 document.addEventListener('change',e=>{if(e.target.dataset.pack){localStorage.setItem('pack_'+e.target.dataset.pack,e.target.checked?'1':'0');toast()}});setTimeout(()=>document.querySelectorAll('[data-pack]').forEach(x=>x.checked=localStorage.getItem('pack_'+x.dataset.pack)==='1'),50);
 journal.value=localStorage.getItem('journal')||'';journal.addEventListener('input',()=>{localStorage.setItem('journal',journal.value);});function toast(){const t=document.getElementById('toast');t.style.display='block';setTimeout(()=>t.style.display='none',900)}
 function countdown(){const start=new Date('2026-08-23T00:00:00');const now=new Date();const diff=Math.ceil((start-now)/(1000*60*60*24));document.getElementById('countdown').textContent=diff>0?diff:'In viaggio'}countdown();
-async function weather(){try{const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=46.29&longitude=11.51&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Europe%2FRome');const j=await r.json();const d=j.daily;todayWeather.textContent=Math.round(d.temperature_2m_max[0])+'°C';weatherGrid.innerHTML=d.time.map((t,i)=>`<div class="wday"><b>${new Date(t).toLocaleDateString('it-IT',{weekday:'short'})}</b><div style="font-size:28px">${d.weather_code[i]<3?'☀️':d.weather_code[i]<60?'☁️':'🌧'}</div><b>${Math.round(d.temperature_2m_max[i])}°</b><br><span class="mini">min ${Math.round(d.temperature_2m_min[i])}° · pioggia ${d.precipitation_probability_max[i]??0}%</span></div>`).join('')}catch(e){weatherGrid.innerHTML='<div class="card">Meteo non disponibile offline.</div>'}}weather();renderDays();
-
-// PWA install + service worker
-let deferredInstallPrompt = null;
-const installBanner = document.getElementById('installBanner');
-const installNow = document.getElementById('installNow');
-const dismissInstall = document.getElementById('dismissInstall');
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./service-worker.js')
-      .then(() => console.log('TravelBook PWA attiva'))
-      .catch(err => console.warn('Service worker non registrato:', err));
-  });
-}
-
-window.addEventListener('beforeinstallprompt', (event) => {
-  event.preventDefault();
-  deferredInstallPrompt = event;
-  if (localStorage.getItem('travelbook_install_dismissed') !== '1') {
-    installBanner?.classList.add('show');
+const weatherDescriptions={0:['☀️','Sereno'],1:['🌤️','Prevalentemente sereno'],2:['⛅','Parzialmente nuvoloso'],3:['☁️','Coperto'],45:['🌫️','Nebbia'],48:['🌫️','Nebbia con brina'],51:['🌦️','Pioviggine leggera'],53:['🌦️','Pioviggine'],55:['🌧️','Pioviggine intensa'],61:['🌧️','Pioggia debole'],63:['🌧️','Pioggia'],65:['🌧️','Pioggia forte'],71:['🌨️','Neve debole'],73:['🌨️','Neve'],75:['🌨️','Neve forte'],80:['🌦️','Rovesci deboli'],81:['🌧️','Rovesci'],82:['⛈️','Rovesci forti'],95:['⛈️','Temporale'],96:['⛈️','Temporale con grandine'],99:['⛈️','Temporale forte']};
+function weatherIcon(code){return (weatherDescriptions[code]||[code<3?'☀️':code<60?'☁️':code<80?'🌧️':'⛈️','Meteo variabile']);}
+async function weather(force=false){
+  const grid=document.getElementById('weatherGrid');
+  const nowBox=document.getElementById('weatherNow');
+  const updated=document.getElementById('weatherUpdated');
+  try{
+    if(grid)grid.innerHTML='<div class="wday">⏳<br><b>Caricamento</b><br><span class="mini">Aggiorno il meteo live...</span></div>';
+    const url='https://api.open-meteo.com/v1/forecast?latitude=46.291&longitude=11.509&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max&timezone=Europe%2FRome&forecast_days=7';
+    const r=await fetch(url+(force?'&refresh='+Date.now():''),{cache:'no-store'});
+    if(!r.ok)throw new Error('Meteo non raggiungibile');
+    const j=await r.json();
+    const d=j.daily, c=j.current;
+    const cur=weatherIcon(c.weather_code);
+    if(todayWeather)todayWeather.textContent=Math.round(c.temperature_2m)+'°C';
+    if(nowBox)nowBox.innerHTML=`<h3>${cur[0]} Meteo Tesero ora</h3><p><b style="font-size:34px;color:var(--green)">${Math.round(c.temperature_2m)}°C</b><br>${cur[1]} · percepita ${Math.round(c.apparent_temperature)}°C</p><p class="mini">Umidità ${c.relative_humidity_2m}% · vento ${Math.round(c.wind_speed_10m)} km/h · pioggia ${c.precipitation} mm</p>`;
+    if(updated)updated.textContent='Ultimo aggiornamento: '+new Date().toLocaleString('it-IT',{dateStyle:'short',timeStyle:'short'});
+    if(grid)grid.innerHTML=d.time.map((t,i)=>{const w=weatherIcon(d.weather_code[i]);return `<div class="wday"><b>${new Date(t).toLocaleDateString('it-IT',{weekday:'short',day:'2-digit',month:'2-digit'})}</b><div style="font-size:28px">${w[0]}</div><b>${Math.round(d.temperature_2m_max[i])}°</b><br><span class="mini">min ${Math.round(d.temperature_2m_min[i])}° · pioggia ${d.precipitation_probability_max[i]??0}% · vento ${Math.round(d.wind_speed_10m_max[i]||0)} km/h</span></div>`}).join('');
+    localStorage.setItem('tb_weather_cache',JSON.stringify({time:Date.now(),data:j}));
+  }catch(e){
+    let cached=null;try{cached=JSON.parse(localStorage.getItem('tb_weather_cache')||'null')}catch(_){}
+    if(cached&&cached.data&&cached.data.daily){
+      const d=cached.data.daily,c=cached.data.current||{};const cur=weatherIcon(c.weather_code||0);
+      if(todayWeather&&c.temperature_2m!=null)todayWeather.textContent=Math.round(c.temperature_2m)+'°C';
+      if(nowBox)nowBox.innerHTML=`<h3>${cur[0]} Meteo Tesero</h3><p class="muted">Mostro l'ultimo meteo salvato perché ora sei offline o l'API non risponde.</p>`;
+      if(updated)updated.textContent='Ultimo dato salvato: '+new Date(cached.time).toLocaleString('it-IT',{dateStyle:'short',timeStyle:'short'});
+      if(grid)grid.innerHTML=d.time.map((t,i)=>{const w=weatherIcon(d.weather_code[i]);return `<div class="wday"><b>${new Date(t).toLocaleDateString('it-IT',{weekday:'short',day:'2-digit',month:'2-digit'})}</b><div style="font-size:28px">${w[0]}</div><b>${Math.round(d.temperature_2m_max[i])}°</b><br><span class="mini">min ${Math.round(d.temperature_2m_min[i])}° · pioggia ${d.precipitation_probability_max[i]??0}%</span></div>`}).join('');
+    }else{
+      if(grid)grid.innerHTML='<div class="card">Meteo non disponibile offline. Riprova quando hai connessione.</div>';
+      if(nowBox)nowBox.innerHTML='<h3>🌤 Meteo Tesero</h3><p class="muted">Meteo live non disponibile.</p>';
+    }
   }
-});
-installNow?.addEventListener('click', async () => {
-  if (!deferredInstallPrompt) return;
-  deferredInstallPrompt.prompt();
-  await deferredInstallPrompt.userChoice;
-  deferredInstallPrompt = null;
-  installBanner?.classList.remove('show');
-});
-dismissInstall?.addEventListener('click', () => {
-  localStorage.setItem('travelbook_install_dismissed','1');
-  installBanner?.classList.remove('show');
-});
-
+}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js?v=2.0').catch(()=>{}));}
+weather();renderDays();
 </script>
 </body></html>

@@ -1,51 +1,56 @@
-const CACHE_NAME = 'travelbook-fiemme-v1.1-pwa';
+const CACHE_NAME = 'travelbook-valfiemme-v2-0-1';
 const APP_SHELL = [
   './',
   './index.html',
   './manifest.json',
   './assets/hotel_erica_reale.png',
-  './assets/montagna_animata_reale.png',
-  './assets/icon-192.png',
-  './assets/icon-512.png',
-  './assets/maskable-icon-512.png'
+  './assets/montagna_animata_reale.png'
 ];
 
 self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting())
-  );
+  self.skipWaiting();
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)));
 });
 
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(keys => Promise.all(keys.map(key => key !== CACHE_NAME ? caches.delete(key) : null))).then(() => self.clients.claim())
+    caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))))
+      .then(() => self.clients.claim())
   );
 });
 
 self.addEventListener('fetch', event => {
-  const request = event.request;
-  const url = new URL(request.url);
+  const url = new URL(event.request.url);
 
-  // Meteo: network first, fallback to cached response when offline.
-  if (url.hostname.includes('open-meteo.com')) {
+  // Meteo live: sempre rete, mai cache statica.
+  if (url.hostname.includes('api.open-meteo.com')) {
+    event.respondWith(fetch(event.request, { cache: 'no-store' }));
+    return;
+  }
+
+  // Navigazione HTML: prova rete, fallback alla cache.
+  if (event.request.mode === 'navigate') {
     event.respondWith(
-      fetch(request).then(response => {
+      fetch(event.request).then(response => {
         const copy = response.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+        caches.open(CACHE_NAME).then(cache => cache.put('./index.html', copy));
         return response;
-      }).catch(() => caches.match(request))
+      }).catch(() => caches.match('./index.html'))
     );
     return;
   }
 
-  // App files: cache first, then network.
-  if (request.method === 'GET') {
-    event.respondWith(
-      caches.match(request).then(cached => cached || fetch(request).then(response => {
-        const copy = response.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+  // Asset: cache first, con aggiornamento in background.
+  event.respondWith(
+    caches.match(event.request).then(cached => {
+      const network = fetch(event.request).then(response => {
+        if (response && response.status === 200) {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+        }
         return response;
-      }).catch(() => caches.match('./index.html')))
-    );
-  }
+      }).catch(() => cached);
+      return cached || network;
+    })
+  );
 });

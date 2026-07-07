@@ -1,36 +1,14 @@
 {
-  "name": "TravelBook – Val di Fiemme 2026",
+  "name": "TravelBook – Val di Fiemme",
   "short_name": "TravelBook",
-  "description": "Guida digitale di viaggio per la Val di Fiemme 2026: itinerario, hotel, meteo, voli, escursioni e checklist.",
-  "lang": "it-IT",
+  "description": "Guida di viaggio per la Val di Fiemme 2026 con meteo live e itinerario.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait-primary",
-  "theme_color": "#123f2f",
   "background_color": "#fbf5e9",
-  "categories": [
-    "travel",
-    "lifestyle"
-  ],
+  "theme_color": "#123f2f",
+  "orientation": "portrait-primary",
   "icons": [
-    {
-      "src": "assets/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "assets/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "assets/maskable-icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
+    { "src": "assets/hotel_erica_reale.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
   ]
 }
