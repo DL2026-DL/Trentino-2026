@@ -302,7 +302,41 @@ h1,h2,h3{font-family:Georgia, 'Times New Roman', serif;margin:0;color:var(--gree
 
 .quickFacts{
     margin:18px 0;
-}  
+} 
+.premium-summary{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin:22px 0;
+}
+
+.premium-summary .summary-item{
+  background:white;
+  border:1px solid #eadfce;
+  border-radius:18px;
+  padding:14px;
+}
+
+.premium-summary .summary-item b{
+  display:block;
+  color:var(--green);
+  margin-bottom:4px;
+}
+
+.travelbook-tip{
+  background:#fff7e7;
+  border-left:5px solid var(--gold);
+  border-radius:18px;
+  padding:16px 18px;
+  margin:18px 0;
+}
+
+@media(max-width:900px){
+  .premium-summary{
+    grid-template-columns:1fr 1fr;
+  }
+}
+  
 </style>
 </head>
 <body>
@@ -486,7 +520,33 @@ ${e.type}
 
 </div>
 
-<p>${e.desc}</p>${extra}<div class="detailGrid"><div><div class="infoCard"><h3>👶 Consigli family</h3><p>${e.family}</p></div><div class="infoCard"><h3>🍝 Pausa pranzo</h3><p>${e.lunch}</p></div><div class="infoCard"><h3>💡 Consiglio TravelBook</h3><p>${e.tip}</p></div><div class="photoStrip">${gallery}</div><p class="credit">${e.credit||''}</p></div><div><div class="infoCard"><h3>🌤 Meteo</h3><p>${e.weather}</p><p class="mini">Il meteo live resta nella sezione Meteo principale.</p></div><div class="infoCard"><h3>🚗 Informazioni pratiche</h3>
+<p>${e.desc}</p> <div class="premium-summary">
+  <div class="summary-item">
+    <b>📍 Zona</b>
+    <span>${e.zone}</span>
+  </div>
+  <div class="summary-item">
+    <b>🥾 Difficoltà</b>
+    <span>${e.difficulty || 'Da valutare'}</span>
+  </div>
+  <div class="summary-item">
+    <b>⏱ Durata</b>
+    <span>${e.duration || e.time}</span>
+  </div>
+  <div class="summary-item">
+    <b>🚗 Parcheggio</b>
+    <span>${e.parking || 'Da verificare'}</span>
+  </div>
+  <div class="summary-item">
+    <b>👶 Passeggino</b>
+    <span>${e.stroller ? 'Sì' : 'No / meglio marsupio'}</span>
+  </div>
+</div>
+
+<div class="travelbook-tip">
+  <h3>💚 Consiglio TravelBook</h3>
+  <p>${e.tip}</p>
+</div> ${extra}<div class="detailGrid"><div><div class="infoCard"><h3>👶 Consigli family</h3><p>${e.family}</p></div><div class="infoCard"><h3>🍝 Pausa pranzo</h3><p>${e.lunch}</p></div><div class="photoStrip">${gallery}</div><p class="credit">${e.credit||''}</p></div><div><div class="infoCard"><h3>🌤 Meteo</h3><p>${e.weather}</p><p class="mini">Il meteo live resta nella sezione Meteo principale.</p></div><div class="infoCard"><h3>🚗 Informazioni pratiche</h3>
 
 <p><b>Parcheggio</b><br>${e.parking}</p>
 
