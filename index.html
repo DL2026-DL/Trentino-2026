@@ -536,7 +536,7 @@ function openPlace(id){
 
   document.getElementById('modalHero').innerHTML =
     `<button class="close" onclick="closeModal()" aria-label="Chiudi">✕</button><div class="galleryLabel">${e.emoji} ${e.title}</div>`;
-const gallery=(e.gallery||[e.img]).slice(0,3).map(u=>`<img src="${u}" alt="${e.title}" loading="lazy">`).join('');const extra'';;document.getElementById('modalBody').innerHTML=`<h2>${e.emoji} ${e.title}</h2>
+const gallery=(e.gallery||[e.img]).slice(0,3).map(u=>`<img src="${u}" alt="${e.title}" loading="lazy">`).join('');const extra ='';;document.getElementById('modalBody').innerHTML=`<h2>${e.emoji} ${e.title}</h2>
 
 <div class="quickFacts">
 
