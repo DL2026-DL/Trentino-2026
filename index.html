@@ -305,7 +305,7 @@ h1,h2,h3{font-family:Georgia, 'Times New Roman', serif;margin:0;color:var(--gree
 } 
 .premium-summary{
   display:grid;
-  grid-template-columns:repeat(5,1fr);
+  grid-template-columns:repeat(6,1fr);
   gap:10px;
   margin:22px 0;
 }
@@ -333,7 +333,7 @@ h1,h2,h3{font-family:Georgia, 'Times New Roman', serif;margin:0;color:var(--gree
 
 @media(max-width:900px){
   .premium-summary{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:2, 1fr;
   }
 }
   
@@ -541,6 +541,18 @@ ${e.type}
     <b>👶 Passeggino</b>
     <span>${e.stroller ? 'Sì' : 'No / meglio marsupio'}</span>
   </div>
+  <div class="summary-item">
+  <b>⭐ Family</b>
+  <span>
+    ${'★'.repeat(e.rating)}
+    ${'☆'.repeat(5-e.rating)}
+  </span>
+  <small style="display:block;margin-top:4px;color:#777">
+    ${e.rating==5?'Eccellente':
+      e.rating==4?'Molto consigliata':
+      'Consigliata'}
+  </small>
+</div>
 </div>
 
 <div class="travelbook-tip">
