@@ -292,6 +292,17 @@ h1,h2,h3{font-family:Georgia, 'Times New Roman', serif;margin:0;color:var(--gree
 .hotel-info-compact .card:first-child{
   align-self:start;
 }
+.tag{
+    transition:.25s;
+}
+
+.tag:hover{
+    transform:translateY(-2px);
+}
+
+.quickFacts{
+    margin:18px 0;
+}  
 </style>
 </head>
 <body>
@@ -449,7 +460,37 @@ services:'Bagni • Bar • Negozi',img:'https://commons.wikimedia.org/wiki/Spec
  hotel:{title:'Hotel Erica',emoji:'🏨',zone:'Stava / Tesero · base del viaggio',time:'6 notti',img:'assets/hotel_erica_reale.png',gallery:['assets/hotel_erica_reale.png','https://commons.wikimedia.org/wiki/Special:FilePath/Tesero%20dal%20dosso%20di%20San%20Valerio.jpg','https://commons.wikimedia.org/wiki/Special:FilePath/Val%20di%20Fiemme%20da%20Cavalese.jpg'],desc:'Base del viaggio in zona Tesero/Stava. Colazione e cena sono comprese, quindi i pranzi restano l’unico pasto da organizzare giorno per giorno.',family:'Comodo rientrare nel pomeriggio per riposo, cambio e doccia prima della cena. Tenere una borsa “giornata” sempre pronta.',lunch:'Pranzi fuori in base alle tappe; cena in hotel inclusa.',weather:'Consultare il meteo la sera prima per confermare la tappa del giorno successivo.',services:'Colazione, cena, wellness, camere, parcheggio e servizi hotel da verificare con struttura.',tip:'Foto Hotel Erica inserita dalla locandina del progetto, così la scheda usa finalmente l’immagine corretta.',maps:'https://www.google.com/maps/search/?api=1&query=Hotel+Erica+Tesero',credit:'Immagine Hotel Erica ricavata dalla locandina fornita nel progetto.'}
 };
 excursions.innerHTML=Object.entries(places).filter(([k])=>k!=='hotel').map(([k,e])=>`<div class="card"><div class="photo-card" style="height:150px;margin:-6px -6px 16px;background-image:linear-gradient(transparent,rgba(0,0,0,.55)),url('${e.img}')"><span>${e.title}</span></div><h3>${e.emoji} ${e.title}</h3><span class="tag">${e.zone}</span><p class="muted">Scheda rapida con navigazione, consigli family, pausa pranzo e meteo.</p><button class="btn secondary" onclick="openPlace('${k}')">Apri scheda</button></div>`).join('');
-function openPlace(id){const e=places[id];if(!e)return;document.getElementById('modalHero').style.backgroundImage=`linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.58)),url('${e.img}')`;document.getElementById('modalHero').innerHTML=`<button class="close" onclick="closeModal()" aria-label="Chiudi">✕</button><div class="galleryLabel">${e.emoji} ${e.title}</div>`;const gallery=(e.gallery||[e.img]).slice(0,3).map(u=>`<img src="${u}" alt="${e.title}" loading="lazy">`).join('');const extra=id==='cermis'?`<div class="place-note"><b>🎈 Cermislandia</b><br>Inserita nella scheda Alpe Cermis: area family al Doss dei Laresi / Villaggio dei Racconti, con link ufficiale dedicato.</div>`:'';document.getElementById('modalBody').innerHTML=`<h2>${e.emoji} ${e.title}</h2><div class="quickFacts"><span class="tag">📍 ${e.zone}</span><span class="tag">⏱ ${e.time}</span><span class="tag">👶 Family</span><span class="tag">🌤 Meteo</span></div><p>${e.desc}</p>${extra}<div class="detailGrid"><div><div class="infoCard"><h3>👶 Consigli family</h3><p>${e.family}</p></div><div class="infoCard"><h3>🍝 Pausa pranzo</h3><p>${e.lunch}</p></div><div class="infoCard"><h3>💡 Consiglio TravelBook</h3><p>${e.tip}</p></div><div class="photoStrip">${gallery}</div><p class="credit">${e.credit||''}</p></div><div><div class="infoCard"><h3>🌤 Meteo</h3><p>${e.weather}</p><p class="mini">Il meteo live resta nella sezione Meteo principale.</p></div><div class="infoCard"><h3>🅿️ Servizi</h3><p>${e.services}</p></div><div class="infoCard"><h3>📍 Navigazione</h3><p>Prima consulta la scheda, poi avvia Maps quando siete pronti.</p>${(e.officialLinks||[]).map(l=>`<a class="btn secondary" target="_blank" href="${l[1]}">${l[0]}</a> `).join('')}${e.official?`<a class="btn secondary" target="_blank" href="${e.official}">Pagina ufficiale</a> `:''}<a class="btn" target="_blank" href="${e.maps}">Avvia navigazione</a></div></div></div>`;document.getElementById('modal').classList.add('open');document.getElementById('modal').setAttribute('aria-hidden','false')}
+function openPlace(id){const e=places[id];if(!e)return;document.getElementById('modalHero').style.backgroundImage=`linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.58)),url('${e.img}')`;document.getElementById('modalHero').innerHTML=`<button class="close" onclick="closeModal()" aria-label="Chiudi">✕</button><div class="galleryLabel">${e.emoji} ${e.title}</div>`;const gallery=(e.gallery||[e.img]).slice(0,3).map(u=>`<img src="${u}" alt="${e.title}" loading="lazy">`).join('');const extra=id==='cermis'?`<div class="place-note"><b>🎈 Cermislandia</b><br>Inserita nella scheda Alpe Cermis: area family al Doss dei Laresi / Villaggio dei Racconti, con link ufficiale dedicato.</div>`:'';document.getElementById('modalBody').innerHTML=`<h2>${e.emoji} ${e.title}</h2>
+
+<div class="quickFacts">
+
+<span class="tag" style="background:${e.color};color:white">
+${e.type}
+</span>
+
+<span class="tag">
+⭐ ${'★'.repeat(e.rating)}
+</span>
+
+<span class="tag">
+🥾 ${e.difficulty}
+</span>
+
+<span class="tag">
+⏱ ${e.duration}
+</span>
+
+<span class="tag">
+👶 ${e.stroller ? 'Passeggino ✔' : 'Passeggino ✘'}
+</span>
+
+</div>
+
+<p>${e.desc}</p>${extra}<div class="detailGrid"><div><div class="infoCard"><h3>👶 Consigli family</h3><p>${e.family}</p></div><div class="infoCard"><h3>🍝 Pausa pranzo</h3><p>${e.lunch}</p></div><div class="infoCard"><h3>💡 Consiglio TravelBook</h3><p>${e.tip}</p></div><div class="photoStrip">${gallery}</div><p class="credit">${e.credit||''}</p></div><div><div class="infoCard"><h3>🌤 Meteo</h3><p>${e.weather}</p><p class="mini">Il meteo live resta nella sezione Meteo principale.</p></div><div class="infoCard"><h3>🚗 Informazioni pratiche</h3>
+
+<p><b>Parcheggio</b><br>${e.parking}</p>
+
+<p><b>Servizi</b><br>${e.services}</p></div><div class="infoCard"><h3>📍 Navigazione</h3><p>Prima consulta la scheda, poi avvia Maps quando siete pronti.</p>${(e.officialLinks||[]).map(l=>`<a class="btn secondary" target="_blank" href="${l[1]}">${l[0]}</a> `).join('')}${e.official?`<a class="btn secondary" target="_blank" href="${e.official}">Pagina ufficiale</a> `:''}<a class="btn" target="_blank" href="${e.maps}">Avvia navigazione</a></div></div></div>`;document.getElementById('modal').classList.add('open');document.getElementById('modal').setAttribute('aria-hidden','false')}
 function closeModal(){document.getElementById('modal').classList.remove('open');document.getElementById('modal').setAttribute('aria-hidden','true')}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
 
