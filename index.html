@@ -554,7 +554,15 @@ duration:'Mezza giornata',
 stroller:false,
 parking:'Parcheggio in zona Val di Sadole',
 services:'Malga • Sentieri • Prati • Panorama',
-subtitle:'Malga • Natura • Pranzo tipico',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Monte%20Cauriol%2003.JPG',gallery:['https://commons.wikimedia.org/wiki/Special:FilePath/Monte%20Cauriol%2003.JPG','https://commons.wikimedia.org/wiki/Special:FilePath/Val%20di%20Fiemme%20da%20Cavalese.jpg','https://commons.wikimedia.org/wiki/Special:FilePath/Cermis%20view.jpg'],desc:'La Val di Sadole è una valle tranquilla e autentica, ideale per una giornata lenta tra prati, boschi, malghe e panorami di montagna. È perfetta per vivere una pausa più tradizionale e assaggiare piatti tipici in malga.',family:'Meglio marsupio rispetto al passeggino se scegliete tratti sterrati. Portare felpa, acqua e cambio bimbo.',lunch:'Malga Sadole: polenta, formaggi e piatti tipici. Verificare apertura e disponibilità.',weather:'Controllare rischio temporali pomeridiani: meglio partire al mattino.',services:'Malghe e punti di appoggio in base all’apertura stagionale.',tip:'Partite al mattino senza fretta e organizzate il pranzo in malga. Per i bambini è meglio usare il marsupio se scegliete tratti sterrati. Portate una felpa e lasciate tempo per foto, giochi nei prati e una pausa dolce prima del rientro.',maps:'https://www.google.com/maps/search/?api=1&query=Val+di+Sadole',credit:'Foto da Wikimedia Commons: Monte Cauriol / Val di Sadole.'},
+subtitle:'Malga • Natura • Pranzo tipico',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Monte%20Cauriol%2003.JPG',gallery:['https://commons.wikimedia.org/wiki/Special:FilePath/Monte%20Cauriol%2003.JPG','https://commons.wikimedia.org/wiki/Special:FilePath/Val%20di%20Fiemme%20da%20Cavalese.jpg','https://commons.wikimedia.org/wiki/Special:FilePath/Cermis%20view.jpg'],desc:'La Val di Sadole è una valle tranquilla e autentica, ideale per una giornata lenta tra prati, boschi, malghe e panorami di montagna. È perfetta per vivere una pausa più tradizionale e assaggiare piatti tipici in malga.',family:'Meglio marsupio rispetto al passeggino se scegliete tratti sterrati. Portare felpa, acqua e cambio bimbo.',lunch:'Malga Sadole: polenta, formaggi e piatti tipici. Verificare apertura e disponibilità.',weather:'Controllare rischio temporali pomeridiani: meglio partire al mattino.',services:'Malghe e punti di appoggio in base all’apertura stagionale.',tip:'Partite al mattino senza fretta e organizzate il pranzo in malga. Per i bambini è meglio usare il marsupio se scegliete tratti sterrati. Portate una felpa e lasciate tempo per foto, giochi nei prati e una pausa dolce prima del rientro.',maps:'https://www.google.com/maps/search/?api=1&query=Val+di+Sadole',officialLinks:[
+  ['🥘 Malga Sadole','https://www.malgasadole.it/it/orari-contatti']
+],bonus:{
+    title:'🧗 Bonus Adventure',
+    text:'Se avete ancora delle energie ci si può concedere un paio d’ore al Suan Park di Ziano di Fiemme.',
+    info:'⏱ 2–3 ore • 🧗 Percorsi sugli alberi • ☕ Bar',
+    button:'Apri Suan Park',
+    link:'https://suanpark.it/'
+},credit:'Foto da Wikimedia Commons: Monte Cauriol / Val di Sadole.'},
  lavaze:{title:'Passo Lavazè',emoji:'🌲',zone:'Lavazè · Varena',time:'1–3 ore',type:'Panorama',
 color:'#d4882d',
 rating:5,
@@ -642,7 +650,21 @@ ${e.type}
 <div class="travelbook-tip">
   <h3>💚 Consiglio TravelBook</h3>
   <p>${e.tip}</p>
-</div> ${extra}<div class="detailGrid"><div><div class="infoCard"><h3>👶 Consigli family</h3><p>${e.family}</p></div><div class="infoCard"><h3>🍝 Pausa pranzo</h3><p>${e.lunch}</p></div><div class="photoStrip">${gallery}</div><p class="credit">${e.credit||''}</p></div><div><div class="infoCard"><h3>🌤 Meteo</h3><p>${e.weather}</p><p class="mini">Il meteo live resta nella sezione Meteo principale.</p></div><div class="infoCard"><h3>🚗 Informazioni pratiche</h3>
+</div> ${e.bonus ? `
+<div class="infoCard">
+    <h3>${e.bonus.title}</h3>
+
+    <p>${e.bonus.text}</p>
+
+    <p class="mini">${e.bonus.info}</p>
+
+    <a class="btn secondary"
+       target="_blank"
+       href="${e.bonus.link}">
+       🌲 ${e.bonus.button}
+    </a>
+</div>
+` : ''} ${extra}<div class="detailGrid"><div><div class="infoCard"><h3>👶 Consigli family</h3><p>${e.family}</p></div><div class="infoCard"><h3>🍝 Pausa pranzo</h3><p>${e.lunch}</p></div><div class="photoStrip">${gallery}</div><p class="credit">${e.credit||''}</p></div><div><div class="infoCard"><h3>🌤 Meteo</h3><p>${e.weather}</p><p class="mini">Il meteo live resta nella sezione Meteo principale.</p></div><div class="infoCard"><h3>🚗 Informazioni pratiche</h3>
 
 <p><b>Parcheggio</b><br>${e.parking}</p>
 
